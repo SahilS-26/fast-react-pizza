@@ -62,4 +62,7 @@ export const selectTotalCartQuantity = (state) =>
 export const selectTotalCartPrice = (state) =>
   state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);
 
+export const selectCurrentQuantityById = (id) => (state) =>
+  state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;
+
 export default cartSlice.reducer;
